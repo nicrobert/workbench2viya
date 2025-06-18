@@ -40,3 +40,7 @@ run ;
 
 proc means data=tcs.techsupportevals ;
 run ;
+
+proc freq data=tcs.techsupportevals ;
+   tables techsupporteval / plots=freqplot() ;
+run ;
