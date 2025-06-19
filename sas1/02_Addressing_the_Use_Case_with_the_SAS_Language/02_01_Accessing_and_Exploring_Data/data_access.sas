@@ -1,4 +1,13 @@
-%let path=/workspaces/churnproject/workbench2viya/sas1 ;
+%global path ;
+
+%if %quote(&path) ne %then %do ;
+   %put NOTE: PATH variable = %quote(&path). ;
+%end ;
+%else %do ;
+   %put NOTE: PATH variable empty. It will be set to a default value. ;
+   %let path=/workspaces/churnproject/workbench2viya/sas1 ;
+   %put NOTE: PATH variable = %quote(&path). ;
+%end ;
 
 proc import file="&path/data/input/subscriptions.csv" out=subscriptions dbms=csv replace ;
 run ;
